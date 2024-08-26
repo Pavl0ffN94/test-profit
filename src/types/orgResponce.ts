@@ -1,12 +1,12 @@
 export interface Employee {
-  id: number;
+  id: string;
   name: string;
   position: string;
   age: number;
 }
 
 export interface Organization {
-  id: number;
+  id: string;
   name: string;
   location: string;
   employees: Employee[];

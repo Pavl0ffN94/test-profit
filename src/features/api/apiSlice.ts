@@ -1,5 +1,5 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
-import {OrganizationsResponse} from 'type';
+import {OrganizationsResponse} from 'types/orgResponce';
 
 export const apiSlice = createApi({
   reducerPath: 'api',

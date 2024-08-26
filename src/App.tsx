@@ -1,11 +1,17 @@
-import {Header, OrganizationList} from 'components';
-import style from './App.module.scss';
+import {Header} from 'components/Header';
+
+import {OrganizationList} from 'components/OrganizationList';
+import {Route, Routes} from 'react-router-dom';
+import {EmployeeList} from 'components/EmployeeList';
 
 function App() {
   return (
-    <main className={style.main}>
+    <main>
       <Header />
-      <OrganizationList />
+      <Routes>
+        <Route path='/' element={<OrganizationList />} />
+        <Route path='/organization/:id' element={<EmployeeList />} />
+      </Routes>
     </main>
   );
 }
