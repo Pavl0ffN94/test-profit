@@ -1,11 +1,12 @@
 import {useState} from 'react';
 import {useNavigate, useParams} from 'react-router-dom';
 import {Table, Typography, Button} from 'antd';
-import {useGetOrganizationsQuery} from 'features/api/apiSlice';
-import {EditEmployeeModal} from './EditModul';
-import {Employee} from 'types/orgResponce';
+
 import {ColumnsType} from 'antd/es/table';
 import style from './style.module.scss';
+import {useGetOrganizationsQuery} from '@/features';
+import {EditEmployeeModal} from './EditModul';
+import {Employee} from '@/types';
 
 export const EmployeeList = () => {
   const {id} = useParams<{id: string}>();

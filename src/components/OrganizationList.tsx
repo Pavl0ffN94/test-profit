@@ -1,9 +1,9 @@
-import {useGetOrganizationsQuery} from '../features/api/apiSlice';
+import {useGetOrganizationsQuery} from '@/features';
+import {Organization} from '@/types';
 import {Table} from 'antd';
 import {ColumnsType} from 'antd/es/table';
 
 import {useNavigate} from 'react-router-dom';
-import {Organization} from 'types/orgResponce';
 
 export const OrganizationList = () => {
   const {data, error, isLoading} = useGetOrganizationsQuery();

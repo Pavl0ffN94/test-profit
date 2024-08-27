@@ -1,9 +1,7 @@
-import {Header} from 'components/Header';
-
-import {OrganizationList} from 'components/OrganizationList';
 import {Route, Routes} from 'react-router-dom';
-import {EmployeeList} from 'components/EmployeeList';
+
 import style from './App.module.scss';
+import {EmployeeList, Header, OrganizationList} from './components';
 
 function App() {
   return (
