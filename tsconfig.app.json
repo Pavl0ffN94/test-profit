@@ -28,11 +28,13 @@
     ],
 
     // Alias import
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
-      "components/*": ["components/*"],
-      "store": ["store/*"],
-      "features": ["features/*"]
+      "@/*": ["./src/*"],
+      "@components": ["./src/components/*"],
+      "@features/*": ["./src/features/*"],
+      "@store/*": ["./src/store/*"],
+      "@types/*": ["./src/types/*"]
     }
   }
 }

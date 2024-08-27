@@ -1,7 +1,8 @@
 import {useEffect} from 'react';
 import {Modal, Form, Input, Button} from 'antd';
-import {Employee} from 'types/orgResponce';
-import {useUpdateEmployeeMutation} from '../features/api/apiSlice'; // Импортируйте свой хук
+
+import {Employee} from '@/types/orgResponce';
+import {useUpdateEmployeeMutation} from '@/features/api/apiSlice';
 
 interface EditEmployeeModalProps {
   visible: boolean;
