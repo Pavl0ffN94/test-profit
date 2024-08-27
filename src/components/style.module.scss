@@ -1,0 +1,17 @@
+.employeeWrapper{
+    display: flex;
+    flex-direction: column;
+}
+.headerEmpl{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.breadcrumbs{
+    width: 20%;
+    height: 50px;
+    background-color: #eeeeeedc;
+}
+

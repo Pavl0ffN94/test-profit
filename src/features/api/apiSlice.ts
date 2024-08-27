@@ -1,14 +1,22 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
-import {OrganizationsResponse} from 'types/orgResponce';
+import {Employee, OrganizationsResponse} from 'types/orgResponce';
 
 export const apiSlice = createApi({
   reducerPath: 'api',
-  baseQuery: fetchBaseQuery({baseUrl: '/'}),
+  baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:5000/api/'}),
   endpoints: builder => ({
     getOrganizations: builder.query<OrganizationsResponse, void>({
-      query: () => 'mockData.json',
+      query: () => 'organizations',
+    }),
+
+    updateEmployee: builder.mutation<void, Employee>({
+      query: ({id, ...patch}) => ({
+        url: `employees/${id}`,
+        method: 'PUT',
+        body: patch,
+      }),
     }),
   }),
 });
 
-export const {useGetOrganizationsQuery} = apiSlice;
+export const {useGetOrganizationsQuery, useUpdateEmployeeMutation} = apiSlice;

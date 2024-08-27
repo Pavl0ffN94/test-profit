@@ -355,6 +355,72 @@
                     "phone": "+7 383 234-56-80"
                 }
             ]
+        },
+        {
+            "id": "7",
+            "name": "ОAО Hoefe ",
+            "city": "Самара",
+            "phone": "+7 812 123-45-67",
+            "email": "hoefe@info.ru",
+            "description": "Интернет-сервис для размещения объявлений о товарах.",
+            "employees": [
+                {
+                    "id": "1",
+                    "firstName": "Анна",
+                    "lastName": "Васильева",
+                    "position": "Консультант",
+                    "email": "vasilieva@beta.ru",
+                    "phone": "+7 812 234-56-78"
+                },
+                {
+                    "id": "2",
+                    "firstName": "Дмитрий",
+                    "lastName": "Егоров",
+                    "position": "Разработчик",
+                    "email": "egorov@beta.ru",
+                    "phone": "+7 812 234-56-79"
+                },
+                {
+                    "id": "3",
+                    "firstName": "Екатерина",
+                    "lastName": "Иванова",
+                    "position": "Менеджер",
+                    "email": "ivanova@beta.ru",
+                    "phone": "+7 812 234-56-80"
+                },
+                {
+                    "id": "4",
+                    "firstName": "Александр",
+                    "lastName": "Михайлов",
+                    "position": "Тестировщик",
+                    "email": "mikhailov@beta.ru",
+                    "phone": "+7 812 234-56-81"
+                },
+                {
+                    "id": "5",
+                    "firstName": "Николай",
+                    "lastName": "Федоров",
+                    "position": "Аналитик",
+                    "email": "fedorov@beta.ru",
+                    "phone": "+7 812 234-56-82"
+                },
+                {
+                    "id": "6",
+                    "firstName": "Ирина",
+                    "lastName": "Ковалева",
+                    "position": "HR",
+                    "email": "kovaleva@beta.ru",
+                    "phone": "+7 812 234-56-83"
+                },
+                {
+                    "id": "7",
+                    "firstName": "Андрей",
+                    "lastName": "Новиков",
+                    "position": "Разработчик",
+                    "email": "novikov@beta.ru",
+                    "phone": "+7 812 234-56-84"
+                }
+            ]
         }
     ]
 }
