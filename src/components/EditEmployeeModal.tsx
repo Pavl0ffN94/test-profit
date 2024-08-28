@@ -1,8 +1,8 @@
 import {useEffect} from 'react';
 import {Modal, Form, Input, Button} from 'antd';
 
-import {useUpdateEmployeeMutation} from '@/features';
 import {Employee} from '@/types';
+import {useUpdateEmployeeMutation} from '@/features';
 
 interface EditEmployeeModalProps {
   visible: boolean;

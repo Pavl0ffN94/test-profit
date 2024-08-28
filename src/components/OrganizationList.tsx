@@ -5,6 +5,9 @@ import {ColumnsType} from 'antd/es/table';
 
 import {useNavigate} from 'react-router-dom';
 
+import style from './style.module.scss';
+import {AddOrg} from './AddOrg';
+
 export const OrganizationList = () => {
   const {data, error, isLoading} = useGetOrganizationsQuery();
   const navigate = useNavigate();
@@ -39,17 +42,20 @@ export const OrganizationList = () => {
   ];
 
   return (
-    <Table
-      columns={columns}
-      dataSource={data}
-      rowKey='id'
-      pagination={false}
-      bordered
-      onRow={record => ({
-        onClick: () => {
-          navigate(`/organizations/${record.id}/employees`);
-        },
-      })}
-    />
+    <div className={style.orgWrapper}>
+      <AddOrg />
+      <Table
+        columns={columns}
+        dataSource={data}
+        rowKey='id'
+        pagination={false}
+        bordered
+        onRow={record => ({
+          onClick: () => {
+            navigate(`/organizations/${record.id}/employees`);
+          },
+        })}
+      />
+    </div>
   );
 };

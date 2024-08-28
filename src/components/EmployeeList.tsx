@@ -10,7 +10,7 @@ import {Employee, Organization} from '@/types';
 import {
   useGetEmployeesByOrganizationQuery,
   useGetOrganizationsQuery,
-  useDeleteEmployeeMutation, // Импортируем хук удаления
+  useDeleteEmployeeMutation,
 } from '@/features';
 
 export const EmployeeList = () => {
@@ -28,7 +28,7 @@ export const EmployeeList = () => {
     isLoading: orgsLoading,
   } = useGetOrganizationsQuery();
 
-  const [deleteEmployee] = useDeleteEmployeeMutation(); // Используем хук удаления
+  const [deleteEmployee] = useDeleteEmployeeMutation();
 
   const [selectedEmployee, setSelectedEmployee] = useState<Employee | null>(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
