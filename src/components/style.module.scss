@@ -14,4 +14,8 @@
     height: 50px;
     background-color: #eeeeeedc;
 }
-
+.btnEmployee{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}

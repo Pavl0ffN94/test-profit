@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "vite",
-    "server": "nodemon server/server.mjs",
+    "server": "nodemon server/index.mjs",
     "dev": "concurrently \"vite\" \"yarn run server\"",
     "build": "tsc -b && vite build",
     "lint": "eslint .",

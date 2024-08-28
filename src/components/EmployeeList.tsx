@@ -1,13 +1,17 @@
 import {useState} from 'react';
 import {useNavigate, useParams} from 'react-router-dom';
-import {Table, Typography, Button} from 'antd';
+import {Table, Typography, Button, Popconfirm, message} from 'antd';
 
 import {ColumnsType} from 'antd/es/table';
 import style from './style.module.scss';
 
 import {EditEmployeeModal} from './EditEmployeeModal';
 import {Employee, Organization} from '@/types';
-import {useGetEmployeesByOrganizationQuery, useGetOrganizationsQuery} from '@/features';
+import {
+  useGetEmployeesByOrganizationQuery,
+  useGetOrganizationsQuery,
+  useDeleteEmployeeMutation, // Импортируем хук удаления
+} from '@/features';
 
 export const EmployeeList = () => {
   const {id} = useParams<{id: string}>();
@@ -24,7 +28,7 @@ export const EmployeeList = () => {
     isLoading: orgsLoading,
   } = useGetOrganizationsQuery();
 
-  console.log(employees);
+  const [deleteEmployee] = useDeleteEmployeeMutation(); // Используем хук удаления
 
   const [selectedEmployee, setSelectedEmployee] = useState<Employee | null>(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -38,6 +42,15 @@ export const EmployeeList = () => {
 
   const backToHome = () => {
     navigate('/');
+  };
+
+  const handleDelete = async (employeeId: string) => {
+    try {
+      await deleteEmployee({orgId: currentOrg.id, employeeId}).unwrap();
+      message.success('Сотрудник успешно удалён');
+    } catch (error) {
+      message.error('Ошибка при удалении сотрудника', error);
+    }
   };
 
   const columns: ColumnsType<Employee> = [
@@ -67,16 +80,25 @@ export const EmployeeList = () => {
       key: 'phone',
     },
     {
-      title: 'Actions',
+      title: 'Действия',
       key: 'actions',
       render: employee => (
-        <Button
-          onClick={() => {
-            setSelectedEmployee(employee);
-            setIsModalVisible(true);
-          }}>
-          Изменить
-        </Button>
+        <div className={style.btnEmployee}>
+          <Button
+            onClick={() => {
+              setSelectedEmployee(employee);
+              setIsModalVisible(true);
+            }}>
+            Изменить
+          </Button>
+          <Popconfirm
+            title='Вы уверены, что хотите удалить этого сотрудника?'
+            onConfirm={() => handleDelete(employee.id)}
+            okText='Да'
+            cancelText='Нет'>
+            <Button danger>Удалить</Button>
+          </Popconfirm>
+        </div>
       ),
     },
   ];

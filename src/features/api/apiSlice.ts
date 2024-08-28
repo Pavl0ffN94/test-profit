@@ -63,19 +63,19 @@ export const apiSlice = createApi({
     // Обновить сотрудника
     updateEmployee: builder.mutation<Employee, UpdateEmployee>({
       query: ({organizationId, employeeId, patch}) => ({
-        url: `organizations/${organizationId}/employees/${employeeId}`, // Изменили URL на нужный
+        url: `organizations/${organizationId}/employees/${employeeId}`, // Корректный URL для обновления сотрудника
         method: 'PUT',
         body: patch,
       }),
-      invalidatesTags: (result, error, {employeeId}) => [
-        {type: 'Employees', id: employeeId},
+      invalidatesTags: (result, error, {organizationId}) => [
+        {type: 'Employees', id: organizationId},
       ],
     }),
 
     // Удалить сотрудника
     deleteEmployee: builder.mutation<void, {orgId: string; employeeId: string}>({
-      query: ({employeeId}) => ({
-        url: `employees/${employeeId}`,
+      query: ({orgId, employeeId}) => ({
+        url: `organizations/${orgId}/employees/${employeeId}`,
         method: 'DELETE',
       }),
       invalidatesTags: (result, error, {orgId}) => [{type: 'Employees', id: orgId}],

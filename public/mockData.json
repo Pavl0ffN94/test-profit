@@ -1,424 +1,418 @@
-[
-  {
-    "id": "1",
-    "name": "ООО Альфа",
-    "city": "Москва",
-    "phone": "+7 495 123-45-67",
-    "email": "info@alfa.ru",
-    "description": "Компания, занимающаяся разработкой программного обеспечения.",
-    "employees": [
-      {
-        "id": "1",
-        "firstName": "Paul",
-        "lastName": "Muad'Dib",
-        "position": "Lisan al-Gaib",
-        "email": "aracis@dune.com",
-        "phone": "+7 495 234-56-78"
-      },
-      {
-        "id": "2",
-        "firstName": "Сергей",
-        "lastName": "Петров",
-        "position": "Тестировщик",
-        "email": "petrov@alfa.ru",
-        "phone": "+7 495 234-56-79"
-      },
-      {
-        "id": "3",
-        "firstName": "Алексей",
-        "lastName": "Сидоров",
-        "position": "Менеджер",
-        "email": "sidorov@alfa.ru",
-        "phone": "+7 495 234-56-80"
-      },
-      {
-        "id": "4",
-        "firstName": "Мария",
-        "lastName": "Федорова",
-        "position": "HR",
-        "email": "fedorova@alfa.ru",
-        "phone": "+7 495 234-56-81"
-      },
-      {
-        "id": "5",
-        "firstName": "Ольга",
-        "lastName": "Кузнецова",
-        "position": "Аналитик",
-        "email": "kuznetsova@alfa.ru",
-        "phone": "+7 495 234-56-82"
-      }
-    ]
-  },
-  {
-    "id": "2",
-    "name": "ООО Бета",
-    "city": "Санкт-Петербург",
-    "phone": "+7 812 123-45-67",
-    "email": "info@beta.ru",
-    "description": "Компания, специализирующаяся на IT-консалтинге.",
-    "employees": [
-      {
-        "id": "1",
-        "firstName": "Анна",
-        "lastName": "Васильева",
-        "position": "Консультант",
-        "email": "vasilieva@beta.ru",
-        "phone": "+7 812 234-56-78"
-      },
-      {
-        "id": "2",
-        "firstName": "Дмитрий",
-        "lastName": "Егоров",
-        "position": "Разработчик",
-        "email": "egorov@beta.ru",
-        "phone": "+7 812 234-56-79"
-      },
-      {
-        "id": "3",
-        "firstName": "Екатерина",
-        "lastName": "Иванова",
-        "position": "Менеджер",
-        "email": "ivanova@beta.ru",
-        "phone": "+7 812 234-56-80"
-      },
-      {
-        "id": "4",
-        "firstName": "Александр",
-        "lastName": "Михайлов",
-        "position": "Тестировщик",
-        "email": "mikhailov@beta.ru",
-        "phone": "+7 812 234-56-81"
-      },
-      {
-        "id": "5",
-        "firstName": "Николай",
-        "lastName": "Федоров",
-        "position": "Аналитик",
-        "email": "fedorov@beta.ru",
-        "phone": "+7 812 234-56-82"
-      },
-      {
-        "id": "6",
-        "firstName": "Ирина",
-        "lastName": "Ковалева",
-        "position": "HR",
-        "email": "kovaleva@beta.ru",
-        "phone": "+7 812 234-56-83"
-      },
-      {
-        "id": "7",
-        "firstName": "Андрей",
-        "lastName": "Новиков",
-        "position": "Разработчик",
-        "email": "novikov@beta.ru",
-        "phone": "+7 812 234-56-84"
-      }
-    ]
-  },
-  {
-    "id": "3",
-    "name": "ООО Гамма",
-    "city": "Новосибирск",
-    "phone": "+7 383 123-45-67",
-    "email": "info@gamma.ru",
-    "description": "Компания, занимающаяся производством электроники.",
-    "employees": [
-      {
-        "id": "1",
-        "firstName": "Максим",
-        "lastName": "Смирнов",
-        "position": "Инженер",
-        "email": "smirnov@gamma.ru",
-        "phone": "+7 383 234-56-78"
-      },
-      {
-        "id": "2",
-        "firstName": "Оксана",
-        "lastName": "Алексеева",
-        "position": "Технолог",
-        "email": "alekseeva@gamma.ru",
-        "phone": "+7 383 234-56-79"
-      },
-      {
-        "id": "3",
-        "firstName": "Юлия",
-        "lastName": "Попова",
-        "position": "Менеджер",
-        "email": "popova@gamma.ru",
-        "phone": "+7 383 234-56-80"
-      },
-      {
-        "id": "4",
-        "firstName": "Владимир",
-        "lastName": "Николаев",
-        "position": "Инженер",
-        "email": "nikolaev@gamma.ru",
-        "phone": "+7 383 234-56-81"
-      },
-      {
-        "id": "5",
-        "firstName": "Александр",
-        "lastName": "Григорьев",
-        "position": "Менеджер",
-        "email": "grigorev@gamma.ru",
-        "phone": "+7 383 234-56-82"
-      },
-      {
-        "id": "6",
-        "firstName": "Татьяна",
-        "lastName": "Семенова",
-        "position": "Тестировщик",
-        "email": "semenova@gamma.ru",
-        "phone": "+7 383 234-56-83"
-      }
-    ]
-  },
-  {
-    "id": "4",
-    "name": "ООО Дельта",
-    "city": "Екатеринбург",
-    "phone": "+7 343 123-45-67",
-    "email": "info@delta.ru",
-    "description": "Компания, предоставляющая услуги связи.",
-    "employees": [
-      {
-        "id": "1",
-        "firstName": "Елена",
-        "lastName": "Волкова",
-        "position": "Технический специалист",
-        "email": "volkova@delta.ru",
-        "phone": "+7 343 234-56-78"
-      },
-      {
-        "id": "2",
-        "firstName": "Роман",
-        "lastName": "Соколов",
-        "position": "Разработчик",
-        "email": "sokolov@delta.ru",
-        "phone": "+7 343 234-56-79"
-      },
-      {
-        "id": "3",
-        "firstName": "Марина",
-        "lastName": "Орлова",
-        "position": "Менеджер",
-        "email": "orlova@delta.ru",
-        "phone": "+7 343 234-56-80"
-      },
-      {
-        "id": "4",
-        "firstName": "Артем",
-        "lastName": "Павлов",
-        "position": "Тестировщик",
-        "email": "pavlov@delta.ru",
-        "phone": "+7 343 234-56-81"
-      },
-      {
-        "id": "5",
-        "firstName": "Василий",
-        "lastName": "Крылов",
-        "position": "Аналитик",
-        "email": "krylov@delta.ru",
-        "phone": "+7 343 234-56-82"
-      }
-    ]
-  },
-  {
-    "id": "5",
-    "name": "ООО Эпсилон",
-    "city": "Казань",
-    "phone": "+7 843 123-45-67",
-    "email": "info@epsilon.ru",
-    "description": "Компания по разработке мобильных приложений.",
-    "employees": [
-      {
-        "id": "1",
-        "firstName": "Олег",
-        "lastName": "Макаров",
-        "position": "Разработчик",
-        "email": "makarov@epsilon.ru",
-        "phone": "+7 843 234-56-78"
-      },
-      {
-        "id": "2",
-        "firstName": "Виктор",
-        "lastName": "Борисов",
-        "position": "Менеджер",
-        "email": "borisov@epsilon.ru",
-        "phone": "+7 843 234-56-79"
-      },
-      {
-        "id": "3",
-        "firstName": "Наталья",
-        "lastName": "Киселева",
-        "position": "Тестировщик",
-        "email": "kiseleva@epsilon.ru",
-        "phone": "+7 843 234-56-80"
-      },
-      {
-        "id": "4",
-        "firstName": "Григорий",
-        "lastName": "Лебедев",
-        "position": "Разработчик",
-        "email": "lebedev@epsilon.ru",
-        "phone": "+7 843 234-56-82"
-      }
-    ]
-  },
-  {
-    "id": "6",
-    "name": "ООО Ромашка",
-    "city": "Санкт-Петербург",
-    "phone": "+7 812 123-45-67",
-    "email": "info@beta.ru",
-    "description": "Компания, специализирующаяся на IT-консалтинге.",
-    "employees": [
-      {
-        "id": "1",
-        "firstName": "Анна",
-        "lastName": "Васильева",
-        "position": "Консультант",
-        "email": "vasilieva@beta.ru",
-        "phone": "+7 812 234-56-78"
-      },
-      {
-        "id": "2",
-        "firstName": "Дмитрий",
-        "lastName": "Егоров",
-        "position": "Разработчик",
-        "email": "egorov@beta.ru",
-        "phone": "+7 812 234-56-79"
-      },
-      {
-        "id": "3",
-        "firstName": "Екатерина",
-        "lastName": "Иванова",
-        "position": "Менеджер",
-        "email": "ivanova@beta.ru",
-        "phone": "+7 812 234-56-80"
-      },
-      {
-        "id": "4",
-        "firstName": "Александр",
-        "lastName": "Михайлов",
-        "position": "Тестировщик",
-        "email": "mikhailov@beta.ru",
-        "phone": "+7 812 234-56-81"
-      },
-      {
-        "id": "5",
-        "firstName": "Николай",
-        "lastName": "Федоров",
-        "position": "Аналитик",
-        "email": "fedorov@beta.ru",
-        "phone": "+7 812 234-56-82"
-      },
-      {
-        "id": "6",
-        "firstName": "Ирина",
-        "lastName": "Ковалева",
-        "position": "HR",
-        "email": "kovaleva@beta.ru",
-        "phone": "+7 812 234-56-83"
-      },
-      {
-        "id": "7",
-        "firstName": "Андрей",
-        "lastName": "Новиков",
-        "position": "Разработчик",
-        "email": "novikov@beta.ru",
-        "phone": "+7 812 234-56-84"
-      },
-      {
-        "id": "8",
-        "firstName": "Максим",
-        "lastName": "Смирнов",
-        "position": "Инженер",
-        "email": "smirnov@gamma.ru",
-        "phone": "+7 383 234-56-78"
-      },
-      {
-        "id": "9",
-        "firstName": "Оксана",
-        "lastName": "Алексеева",
-        "position": "Технолог",
-        "email": "alekseeva@gamma.ru",
-        "phone": "+7 383 234-56-79"
-      },
-      {
-        "id": "10",
-        "firstName": "Юлия",
-        "lastName": "Попова",
-        "position": "Менеджер",
-        "email": "popova@gamma.ru",
-        "phone": "+7 383 234-56-80"
-      }
-    ]
-  },
-  {
-    "id": "7",
-    "name": "ОAО Hoefe ",
-    "city": "Самара",
-    "phone": "+7 812 123-45-67",
-    "email": "hoefe@info.ru",
-    "description": "Интернет-сервис для размещения объявлений о товарах.",
-    "employees": [
-      {
-        "id": "1",
-        "firstName": "Анна",
-        "lastName": "Васильева",
-        "position": "Консультант",
-        "email": "vasilieva@beta.ru",
-        "phone": "+7 812 234-56-78"
-      },
-      {
-        "id": "2",
-        "firstName": "Дмитрий",
-        "lastName": "Егоров",
-        "position": "Разработчик",
-        "email": "egorov@beta.ru",
-        "phone": "+7 812 234-56-79"
-      },
-      {
-        "id": "3",
-        "firstName": "Екатерина",
-        "lastName": "Иванова",
-        "position": "Менеджер",
-        "email": "ivanova@beta.ru",
-        "phone": "+7 812 234-56-80"
-      },
-      {
-        "id": "4",
-        "firstName": "Александр",
-        "lastName": "Михайлов",
-        "position": "Тестировщик",
-        "email": "mikhailov@beta.ru",
-        "phone": "+7 812 234-56-81"
-      },
-      {
-        "id": "5",
-        "firstName": "Николай",
-        "lastName": "Федоров",
-        "position": "Аналитик",
-        "email": "fedorov@beta.ru",
-        "phone": "+7 812 234-56-82"
-      },
-      {
-        "id": "6",
-        "firstName": "Ирина",
-        "lastName": "Ковалева",
-        "position": "HR",
-        "email": "kovaleva@beta.ru",
-        "phone": "+7 812 234-56-83"
-      },
-      {
-        "id": "7",
-        "firstName": "Андрей",
-        "lastName": "Новиков",
-        "position": "Разработчик",
-        "email": "novikov@beta.ru",
-        "phone": "+7 812 234-56-84"
-      }
-    ]
-  }
-]
+{
+  "organizations": [
+    {
+      "id": "1",
+      "name": "ООО Альфа",
+      "city": "Москва",
+      "phone": "+7 495 123-45-67",
+      "email": "info@alfa.ru",
+      "description": "Компания, занимающаяся разработкой программного обеспечения.",
+      "employees": [
+        {
+          "id": "1",
+          "firstName": "Paul",
+          "lastName": "Muad'Dib",
+          "position": "Lisan al-Gaib",
+          "email": "aracis@dune.com",
+          "phone": "+7 495 234-56-78"
+        },
+        {
+          "id": "2",
+          "firstName": "Сергей",
+          "lastName": "ПетровYt",
+          "position": "Тестировщик",
+          "email": "petrov@alfa.ru",
+          "phone": "+7 495 234-56-79"
+        },
+        {
+          "id": "3",
+          "firstName": "Алексей",
+          "lastName": "Сидоров",
+          "position": "Менеджер",
+          "email": "sidorov@alfa.ru",
+          "phone": "+7 495 234-56-80"
+        },
+        {
+          "id": "4",
+          "firstName": "Мария",
+          "lastName": "Федорова",
+          "position": "HR",
+          "email": "fedorova@alfa.ru",
+          "phone": "+7 495 234-56-81"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "ООО Бета",
+      "city": "Санкт-Петербург",
+      "phone": "+7 812 123-45-67",
+      "email": "info@beta.ru",
+      "description": "Компания, специализирующаяся на IT-консалтинге.",
+      "employees": [
+        {
+          "id": "1",
+          "firstName": "Анна",
+          "lastName": "Васильева",
+          "position": "Консультант",
+          "email": "vasilieva@beta.ru",
+          "phone": "+7 812 234-56-78"
+        },
+        {
+          "id": "2",
+          "firstName": "Дмитрий",
+          "lastName": "Егоров",
+          "position": "Разработчик",
+          "email": "egorov@beta.ru",
+          "phone": "+7 812 234-56-79"
+        },
+        {
+          "id": "3",
+          "firstName": "Екатерина",
+          "lastName": "Иванова",
+          "position": "Менеджер",
+          "email": "ivanova@beta.ru",
+          "phone": "+7 812 234-56-80"
+        },
+        {
+          "id": "4",
+          "firstName": "Александр",
+          "lastName": "Михайлов",
+          "position": "Тестировщик",
+          "email": "mikhailov@beta.ru",
+          "phone": "+7 812 234-56-81"
+        },
+        {
+          "id": "5",
+          "firstName": "Николай",
+          "lastName": "Федоров",
+          "position": "Аналитик",
+          "email": "fedorov@beta.ru",
+          "phone": "+7 812 234-56-82"
+        },
+        {
+          "id": "6",
+          "firstName": "Ирина",
+          "lastName": "Ковалева",
+          "position": "HR",
+          "email": "kovaleva@beta.ru",
+          "phone": "+7 812 234-56-83"
+        },
+        {
+          "id": "7",
+          "firstName": "Андрей",
+          "lastName": "Новиков",
+          "position": "Разработчик",
+          "email": "novikov@beta.ru",
+          "phone": "+7 812 234-56-84"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "ООО Гамма",
+      "city": "Новосибирск",
+      "phone": "+7 383 123-45-67",
+      "email": "info@gamma.ru",
+      "description": "Компания, занимающаяся производством электроники.",
+      "employees": [
+        {
+          "id": "1",
+          "firstName": "Максим",
+          "lastName": "Смирнов",
+          "position": "Инженер",
+          "email": "smirnov@gamma.ru",
+          "phone": "+7 383 234-56-78"
+        },
+        {
+          "id": "2",
+          "firstName": "Оксана",
+          "lastName": "Алексеева",
+          "position": "Технолог",
+          "email": "alekseeva@gamma.ru",
+          "phone": "+7 383 234-56-79"
+        },
+        {
+          "id": "3",
+          "firstName": "Юлия",
+          "lastName": "Попова",
+          "position": "Менеджер",
+          "email": "popova@gamma.ru",
+          "phone": "+7 383 234-56-80"
+        },
+        {
+          "id": "4",
+          "firstName": "Владимир",
+          "lastName": "Николаев",
+          "position": "Инженер",
+          "email": "nikolaev@gamma.ru",
+          "phone": "+7 383 234-56-81"
+        },
+        {
+          "id": "5",
+          "firstName": "Александр",
+          "lastName": "Григорьев",
+          "position": "Менеджер",
+          "email": "grigorev@gamma.ru",
+          "phone": "+7 383 234-56-82"
+        },
+        {
+          "id": "6",
+          "firstName": "Татьяна",
+          "lastName": "Семенова",
+          "position": "Тестировщик",
+          "email": "semenova@gamma.ru",
+          "phone": "+7 383 234-56-83"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "ООО Дельта",
+      "city": "Екатеринбург",
+      "phone": "+7 343 123-45-67",
+      "email": "info@delta.ru",
+      "description": "Компания, предоставляющая услуги связи.",
+      "employees": [
+        {
+          "id": "1",
+          "firstName": "Елена",
+          "lastName": "Волкова",
+          "position": "Технический специалист",
+          "email": "volkova@delta.ru",
+          "phone": "+7 343 234-56-78"
+        },
+        {
+          "id": "2",
+          "firstName": "Роман",
+          "lastName": "Соколов",
+          "position": "Разработчик",
+          "email": "sokolov@delta.ru",
+          "phone": "+7 343 234-56-79"
+        },
+        {
+          "id": "3",
+          "firstName": "Марина",
+          "lastName": "Орлова",
+          "position": "Менеджер",
+          "email": "orlova@delta.ru",
+          "phone": "+7 343 234-56-80"
+        },
+        {
+          "id": "4",
+          "firstName": "Артем",
+          "lastName": "Павлов",
+          "position": "Тестировщик",
+          "email": "pavlov@delta.ru",
+          "phone": "+7 343 234-56-81"
+        },
+        {
+          "id": "5",
+          "firstName": "Василий",
+          "lastName": "Крылов",
+          "position": "Аналитик",
+          "email": "krylov@delta.ru",
+          "phone": "+7 343 234-56-82"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "ООО Эпсилон",
+      "city": "Казань",
+      "phone": "+7 843 123-45-67",
+      "email": "info@epsilon.ru",
+      "description": "Компания по разработке мобильных приложений.",
+      "employees": [
+        {
+          "id": "1",
+          "firstName": "Олег",
+          "lastName": "Макаров",
+          "position": "Разработчик",
+          "email": "makarov@epsilon.ru",
+          "phone": "+7 843 234-56-78"
+        },
+        {
+          "id": "2",
+          "firstName": "Виктор",
+          "lastName": "Борисов",
+          "position": "Менеджер",
+          "email": "borisov@epsilon.ru",
+          "phone": "+7 843 234-56-79"
+        },
+        {
+          "id": "3",
+          "firstName": "Наталья",
+          "lastName": "Киселева",
+          "position": "Тестировщик",
+          "email": "kiseleva@epsilon.ru",
+          "phone": "+7 843 234-56-80"
+        },
+        {
+          "id": "4",
+          "firstName": "Григорий",
+          "lastName": "Лебедев",
+          "position": "Разработчик",
+          "email": "lebedev@epsilon.ru",
+          "phone": "+7 843 234-56-82"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "name": "ООО Ромашка",
+      "city": "Санкт-Петербург",
+      "phone": "+7 812 123-45-67",
+      "email": "info@beta.ru",
+      "description": "Компания, специализирующаяся на IT-консалтинге.",
+      "employees": [
+        {
+          "id": "1",
+          "firstName": "Анна",
+          "lastName": "Васильева",
+          "position": "Консультант",
+          "email": "vasilieva@beta.ru",
+          "phone": "+7 812 234-56-78"
+        },
+        {
+          "id": "2",
+          "firstName": "Дмитрий",
+          "lastName": "Егоров",
+          "position": "Разработчик",
+          "email": "egorov@beta.ru",
+          "phone": "+7 812 234-56-79"
+        },
+        {
+          "id": "3",
+          "firstName": "Екатерина",
+          "lastName": "Иванова",
+          "position": "Менеджер",
+          "email": "ivanova@beta.ru",
+          "phone": "+7 812 234-56-80"
+        },
+        {
+          "id": "4",
+          "firstName": "Александр",
+          "lastName": "Михайлов",
+          "position": "Тестировщик",
+          "email": "mikhailov@beta.ru",
+          "phone": "+7 812 234-56-81"
+        },
+        {
+          "id": "5",
+          "firstName": "Николай",
+          "lastName": "Федоров",
+          "position": "Аналитик",
+          "email": "fedorov@beta.ru",
+          "phone": "+7 812 234-56-82"
+        },
+        {
+          "id": "6",
+          "firstName": "Ирина",
+          "lastName": "Ковалева",
+          "position": "HR",
+          "email": "kovaleva@beta.ru",
+          "phone": "+7 812 234-56-83"
+        },
+        {
+          "id": "7",
+          "firstName": "Андрей",
+          "lastName": "Новиков",
+          "position": "Разработчик",
+          "email": "novikov@beta.ru",
+          "phone": "+7 812 234-56-84"
+        },
+        {
+          "id": "8",
+          "firstName": "Максим",
+          "lastName": "Смирнов",
+          "position": "Инженер",
+          "email": "smirnov@gamma.ru",
+          "phone": "+7 383 234-56-78"
+        },
+        {
+          "id": "9",
+          "firstName": "Оксана",
+          "lastName": "Алексеева",
+          "position": "Технолог",
+          "email": "alekseeva@gamma.ru",
+          "phone": "+7 383 234-56-79"
+        },
+        {
+          "id": "10",
+          "firstName": "Юлия",
+          "lastName": "Попова",
+          "position": "Менеджер",
+          "email": "popova@gamma.ru",
+          "phone": "+7 383 234-56-80"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "name": "ОAО Hoefe ",
+      "city": "Самара",
+      "phone": "+7 812 123-45-67",
+      "email": "hoefe@info.ru",
+      "description": "Интернет-сервис для размещения объявлений о товарах.",
+      "employees": [
+        {
+          "id": "1",
+          "firstName": "Анна",
+          "lastName": "Васильева",
+          "position": "Консультант",
+          "email": "vasilieva@beta.ru",
+          "phone": "+7 812 234-56-78"
+        },
+        {
+          "id": "2",
+          "firstName": "Дмитрий",
+          "lastName": "Егоров",
+          "position": "Разработчик",
+          "email": "egorov@beta.ru",
+          "phone": "+7 812 234-56-79"
+        },
+        {
+          "id": "3",
+          "firstName": "Екатерина",
+          "lastName": "Иванова",
+          "position": "Менеджер",
+          "email": "ivanova@beta.ru",
+          "phone": "+7 812 234-56-80"
+        },
+        {
+          "id": "4",
+          "firstName": "Александр",
+          "lastName": "Михайлов",
+          "position": "Тестировщик",
+          "email": "mikhailov@beta.ru",
+          "phone": "+7 812 234-56-81"
+        },
+        {
+          "id": "5",
+          "firstName": "Николай",
+          "lastName": "Федоров",
+          "position": "Аналитик",
+          "email": "fedorov@beta.ru",
+          "phone": "+7 812 234-56-82"
+        },
+        {
+          "id": "6",
+          "firstName": "Ирина",
+          "lastName": "Ковалева",
+          "position": "HR",
+          "email": "kovaleva@beta.ru",
+          "phone": "+7 812 234-56-83"
+        },
+        {
+          "id": "7",
+          "firstName": "Андрей",
+          "lastName": "Новиков",
+          "position": "Разработчик",
+          "email": "novikov@beta.ru",
+          "phone": "+7 812 234-56-84"
+        }
+      ]
+    }
+  ]
+}
