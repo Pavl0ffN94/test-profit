@@ -1,3 +1,4 @@
+import {UpdateEmployee} from '@/types';
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 import {Employee, Organization, OrganizationsResponse} from 'types/orgResponce';
 
@@ -60,10 +61,7 @@ export const apiSlice = createApi({
     ),
 
     // Обновить сотрудника
-    updateEmployee: builder.mutation<
-      Employee,
-      {organizationId: string; employeeId: string; patch: Partial<Employee>}
-    >({
+    updateEmployee: builder.mutation<Employee, UpdateEmployee>({
       query: ({organizationId, employeeId, patch}) => ({
         url: `organizations/${organizationId}/employees/${employeeId}`, // Изменили URL на нужный
         method: 'PUT',
