@@ -8,12 +8,14 @@ interface EditEmployeeModalProps {
   visible: boolean;
   onClose: () => void;
   employee: Employee | null;
+  organizationId: string; // Добавляем organizationId
 }
 
 export const EditEmployeeModal = ({
   visible,
   onClose,
   employee,
+  organizationId, // Получаем organizationId
 }: EditEmployeeModalProps) => {
   const [form] = Form.useForm();
   const [updateEmployee] = useUpdateEmployeeMutation();
@@ -30,11 +32,16 @@ export const EditEmployeeModal = ({
     }
   }, [employee, form]);
 
-  console.log(form);
-
   const handleSubmit = async values => {
     try {
-      await updateEmployee({id: employee?.id, ...values}).unwrap();
+      if (employee) {
+        // Обновляем запрос с передачей organizationId и employeeId
+        await updateEmployee({
+          organizationId, // Передаем organizationId
+          employeeId: employee.id, // Передаем employeeId
+          patch: values, // Передаем обновленные данные
+        }).unwrap();
+      }
       onClose();
     } catch (error) {
       console.error('Failed to update employee:', error);

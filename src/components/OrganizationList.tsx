@@ -9,6 +9,8 @@ export const OrganizationList = () => {
   const {data, error, isLoading} = useGetOrganizationsQuery();
   const navigate = useNavigate();
 
+  console.log(data);
+
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error occurred: {error.toString()}</div>;
 
@@ -39,13 +41,13 @@ export const OrganizationList = () => {
   return (
     <Table
       columns={columns}
-      dataSource={data?.organizations}
+      dataSource={data}
       rowKey='id'
       pagination={false}
       bordered
       onRow={record => ({
         onClick: () => {
-          navigate(`/organization/${record.id}`);
+          navigate(`/organizations/${record.id}/employees`);
         },
       })}
     />

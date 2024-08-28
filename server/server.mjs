@@ -1,4 +1,3 @@
-
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
@@ -32,7 +31,11 @@ app.get('/api/organizations/:id/employees', (req, res) => {
       return res.status(500).json({ error: 'Failed to read data' });
     }
 
-    const organizations = JSON.parse(data);
+    const organizations = JSON.parse(data); 
+
+
+    
+    // Сравниваем id как строку
     const organization = organizations.find(org => org.id === id);
 
     if (!organization) {
@@ -52,10 +55,10 @@ app.post('/api/organizations', (req, res) => {
       return res.status(500).json({ error: 'Failed to read data' });
     }
 
-    const organizations = JSON.parse(data);
+    const organizations = JSON.parse(data).organizations;
     organizations.push(newOrganization);
 
-    fs.writeFile(dataFilePath, JSON.stringify(organizations, null, 2), (err) => {
+    fs.writeFile(dataFilePath, JSON.stringify({ organizations }, null, 2), (err) => {
       if (err) {
         return res.status(500).json({ error: 'Failed to write data' });
       }
@@ -74,7 +77,7 @@ app.put('/api/organizations/:id', (req, res) => {
       return res.status(500).json({ error: 'Failed to read data' });
     }
 
-    const organizations = JSON.parse(data);
+    const organizations = JSON.parse(data).organizations;
     const index = organizations.findIndex(org => org.id === id);
 
     if (index === -1) {
@@ -83,7 +86,7 @@ app.put('/api/organizations/:id', (req, res) => {
 
     organizations[index] = { ...organizations[index], ...updatedOrganization };
 
-    fs.writeFile(dataFilePath, JSON.stringify(organizations, null, 2), (err) => {
+    fs.writeFile(dataFilePath, JSON.stringify({ organizations }, null, 2), (err) => {
       if (err) {
         return res.status(500).json({ error: 'Failed to write data' });
       }
@@ -101,7 +104,7 @@ app.delete('/api/organizations/:id', (req, res) => {
       return res.status(500).json({ error: 'Failed to read data' });
     }
 
-    const organizations = JSON.parse(data);
+    const organizations = JSON.parse(data).organizations;
     const index = organizations.findIndex(org => org.id === id);
 
     if (index === -1) {
@@ -110,7 +113,7 @@ app.delete('/api/organizations/:id', (req, res) => {
 
     organizations.splice(index, 1);
 
-    fs.writeFile(dataFilePath, JSON.stringify(organizations, null, 2), (err) => {
+    fs.writeFile(dataFilePath, JSON.stringify({ organizations }, null, 2), (err) => {
       if (err) {
         return res.status(500).json({ error: 'Failed to write data' });
       }
@@ -118,8 +121,6 @@ app.delete('/api/organizations/:id', (req, res) => {
     });
   });
 });
-
-
 
 // Добавить сотрудника
 app.post('/api/organizations/:orgId/employees', (req, res) => {
@@ -131,7 +132,7 @@ app.post('/api/organizations/:orgId/employees', (req, res) => {
       return res.status(500).json({ error: 'Failed to read data' });
     }
 
-    const organizations = JSON.parse(data);
+    const organizations = JSON.parse(data).organizations;
     const organization = organizations.find(org => org.id === orgId);
 
     if (!organization) {
@@ -140,7 +141,7 @@ app.post('/api/organizations/:orgId/employees', (req, res) => {
 
     organization.employees.push(newEmployee);
 
-    fs.writeFile(dataFilePath, JSON.stringify(organizations, null, 2), (err) => {
+    fs.writeFile(dataFilePath, JSON.stringify({ organizations }, null, 2), (err) => {
       if (err) {
         return res.status(500).json({ error: 'Failed to write data' });
       }
@@ -150,38 +151,57 @@ app.post('/api/organizations/:orgId/employees', (req, res) => {
 });
 
 // Обновить сотрудника
-app.put('/api/employees/:employeeId', (req, res) => {
-  const { employeeId } = req.params;
-  const updatedEmployee = req.body;
+app.put('/api/organizations/:organizationId/employees/:employeeId', (req, res) => {
+  const { organizationId, employeeId } = req.params;
+  const updatedEmployee = req.body; // Обновленные данные сотрудника
 
   fs.readFile(dataFilePath, 'utf8', (err, data) => {
-    if (err) {
-      return res.status(500).json({ error: 'Failed to read data' });
-    }
-
-    const organizations = JSON.parse(data);
-    let employeeFound = false;
-
-    organizations.forEach(org => {
-      const index = org.employees.findIndex(emp => emp.id === employeeId);
-      if (index !== -1) {
-        org.employees[index] = { ...org.employees[index], ...updatedEmployee };
-        employeeFound = true;
-      }
-    });
-
-    if (!employeeFound) {
-      return res.status(404).json({ error: 'Employee not found' });
-    }
-
-    fs.writeFile(dataFilePath, JSON.stringify(organizations, null, 2), (err) => {
       if (err) {
-        return res.status(500).json({ error: 'Failed to write data' });
+          console.error('Error reading data:', err);
+          return res.status(500).json({ error: 'Failed to read data' });
       }
-      res.json(updatedEmployee);
-    });
+
+      let organizations;
+      try {
+          organizations = JSON.parse(data); // Прямое парсинг всего JSON
+      } catch (parseError) {
+          console.error('Error parsing JSON:', parseError);
+          return res.status(500).json({ error: 'Failed to parse JSON' });
+      }
+
+      // Найти организацию по ID
+      const organizationIndex = organizations.findIndex(org => org.id === organizationId);
+      
+      if (organizationIndex === -1) {
+          return res.status(404).json({ error: 'Organization not found' });
+      }
+
+      // Найти сотрудника в найденной организации
+      const employeeIndex = organizations[organizationIndex].employees.findIndex(emp => emp.id === employeeId);
+      
+      if (employeeIndex === -1) {
+          return res.status(404).json({ error: 'Employee not found' });
+      }
+
+      // Обновляем данные сотрудника
+      organizations[organizationIndex].employees[employeeIndex] = {
+          ...organizations[organizationIndex].employees[employeeIndex],
+          ...updatedEmployee
+      };
+
+      // Сохраняем обновленные данные в файл
+      fs.writeFile(dataFilePath, JSON.stringify(organizations, null, 2), (err) => {
+          if (err) {
+              console.error('Error writing data:', err);
+              return res.status(500).json({ error: 'Failed to write data' });
+          }
+          res.json(organizations[organizationIndex].employees[employeeIndex]); // Отправляем обновленные данные в ответ
+      });
   });
 });
+
+
+
 
 // Удалить сотрудника
 app.delete('/api/employees/:employeeId', (req, res) => {
@@ -192,7 +212,7 @@ app.delete('/api/employees/:employeeId', (req, res) => {
       return res.status(500).json({ error: 'Failed to read data' });
     }
 
-    const organizations = JSON.parse(data);
+    const organizations = JSON.parse(data).organizations;
     let employeeFound = false;
 
     organizations.forEach(org => {
@@ -207,7 +227,7 @@ app.delete('/api/employees/:employeeId', (req, res) => {
       return res.status(404).json({ error: 'Employee not found' });
     }
 
-    fs.writeFile(dataFilePath, JSON.stringify(organizations, null, 2), (err) => {
+    fs.writeFile(dataFilePath, JSON.stringify({ organizations }, null, 2), (err) => {
       if (err) {
         return res.status(500).json({ error: 'Failed to write data' });
       }

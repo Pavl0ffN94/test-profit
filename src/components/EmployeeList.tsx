@@ -4,27 +4,39 @@ import {Table, Typography, Button} from 'antd';
 
 import {ColumnsType} from 'antd/es/table';
 import style from './style.module.scss';
-import {useGetOrganizationsQuery} from '@/features';
-import {EditEmployeeModal} from './EditModul';
-import {Employee} from '@/types';
+
+import {EditEmployeeModal} from './EditEmployeeModal';
+import {Employee, Organization} from '@/types';
+import {useGetEmployeesByOrganizationQuery, useGetOrganizationsQuery} from '@/features';
 
 export const EmployeeList = () => {
   const {id} = useParams<{id: string}>();
-  const {data, error, isLoading} = useGetOrganizationsQuery();
+
+  const {
+    data: employees,
+    error: employeesError,
+    isLoading: employeesLoading,
+  } = useGetEmployeesByOrganizationQuery(id);
+
+  const {
+    data: organization,
+    error: orgsError,
+    isLoading: orgsLoading,
+  } = useGetOrganizationsQuery();
+
+  console.log(employees);
+
   const [selectedEmployee, setSelectedEmployee] = useState<Employee | null>(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const navigate = useNavigate();
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error occurred: {error.toString()}</div>;
+  if (employeesLoading || orgsLoading) return <div>Loading...</div>;
+  if (employeesError) return <div>Error loading employees.</div>;
+  if (orgsError) return <div>Error loading organizations.</div>;
 
-  const organization = data?.organizations.find(org => org.id === id);
+  const currentOrg: Organization = organization.find(org => org.id === id);
 
-  if (!organization) {
-    return <div>Организация не найдена.</div>;
-  }
-
-  const breadcrumbs = () => {
+  const backToHome = () => {
     navigate('/');
   };
 
@@ -72,19 +84,20 @@ export const EmployeeList = () => {
   return (
     <div className={style.employeeWrapper}>
       <div className={style.headerEmpl}>
-        <Typography.Title level={2}>{organization.name}</Typography.Title>
-        <Button className={style.breadcrumbs} onClick={() => breadcrumbs()}>
+        <Typography.Title level={2}>{currentOrg.name}</Typography.Title>
+        <Button className={style.breadcrumbs} onClick={() => backToHome()}>
           Назад
         </Button>
       </div>
       <Table
         columns={columns}
-        dataSource={organization.employees}
+        dataSource={employees}
         rowKey='id'
         pagination={{pageSize: 5}}
         bordered
       />
       <EditEmployeeModal
+        organizationId={currentOrg.id}
         visible={isModalVisible}
         onClose={() => setIsModalVisible(false)}
         employee={selectedEmployee}
