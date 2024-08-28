@@ -30,11 +30,9 @@
     // Alias import
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@components": ["./src/components/*"],
-      "@features/*": ["./src/features/*"],
-      "@store/*": ["./src/store/*"],
-      "@types/*": ["./src/types/*"]
+      "@/*": ["./src/*"]
     }
-  }
+  },
+
+  "include": ["src"]
 }

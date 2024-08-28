@@ -1,6 +1,5 @@
-import {UpdateEmployee} from '@/types';
+import {Employee, Organization, OrganizationsResponse, UpdateEmployee} from '@/types';
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
-import {Employee, Organization, OrganizationsResponse} from 'types/orgResponce';
 
 export const apiSlice = createApi({
   reducerPath: 'api',

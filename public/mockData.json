@@ -141,14 +141,6 @@
           "phone": "+7 383 234-56-80"
         },
         {
-          "id": "4",
-          "firstName": "Владимир",
-          "lastName": "Николаев",
-          "position": "Инженер",
-          "email": "nikolaev@gamma.ru",
-          "phone": "+7 383 234-56-81"
-        },
-        {
           "id": "5",
           "firstName": "Александр",
           "lastName": "Григорьев",

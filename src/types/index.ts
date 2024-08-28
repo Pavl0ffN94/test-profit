@@ -1,2 +1,6 @@
-export {Employee, Organization, OrganizationsResponse} from './orgResponce';
-export {UpdateEmployee} from './emploueType';
+export {
+  type Employee,
+  type Organization,
+  type OrganizationsResponse,
+} from './orgResponce';
+export {type UpdateEmployee} from './emploueType';
