@@ -4,23 +4,12 @@
         {
             "src": "server/index.mjs",
             "use": "@vercel/node"
-        },
-        {
-            "src": "vite.config.js",
-            "use": "@vercel/static-build",
-            "config": {
-                "distDir": "dist"
-            }
         }
     ],
     "routes": [
         {
             "src": "/api/(.*)",
             "dest": "/server/index.mjs"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "/index.html"
         }
     ]
 }
