@@ -1,50 +1,39 @@
-# React + TypeScript + Vite
+# Test-Profit
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📚 Обзор проекта
 
-Currently, two official plugins are available:
+### Предметная область
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Проект сосредоточен на организациях и их сотрудниках. Цель — разработать справочник организаций и сотрудников, с следующими функциональными возможностями:
 
-## Expanding the ESLint configuration
+- Два списочных (табличных) представления:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+  1. Список организаций.
+  2. Список сотрудников выбранной организации.
 
-- Configure the top-level `parserOptions` property like this:
+- Верхнеуровневое представление отображает список организаций с возможностью перехода к списку сотрудников для выбранной организации.
+- Должна быть возможность обратной навигации от списка сотрудников обратно к списку организаций.
+- Списочное представление должно содержать функционал для добавления, редактирования и удаления элементов списка (организаций или сотрудников).
+- Добавление и редактирование новых организаций и сотрудников нужно реализовать в модальных окнах.
+- В качестве имитации бэка можно использовать local storage.
+- Поля и их типы в сущностях организаций и сотрудников — на усмотрение разработчика.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Технологический стек
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Обязательный набор технологий:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- React < 18
+- Redux Toolkit
+- React Router DOM 6
+- ANT Design
+- Tailwind CSS
+- React Hook Form для работы с формами
+- TypeScript
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Бойлерплейт
+
+Любой (Vite, CRA, кастомный Webpack и т.д.).
+
+## 📦 Установка и запуск проекта
+
+- производятся через команду yarn/yarn dev
