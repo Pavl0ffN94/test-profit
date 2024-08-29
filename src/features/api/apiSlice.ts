@@ -46,10 +46,10 @@ export const apiSlice = createApi({
         description?: string;
       }
     >({
-      query: ({id, ...patch}) => ({
+      query: ({id, ...data}) => ({
         url: `organizations/${id}`,
         method: 'PUT',
-        body: patch,
+        body: data,
       }),
       invalidatesTags: ['Organizations'],
     }),

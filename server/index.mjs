@@ -67,6 +67,7 @@ app.post('/api/organizations', async (req, res) => {
 
 
 // Обновить организацию
+
 app.put('/api/organizations/:id', async (req, res) => {
   const { id } = req.params;
   const updatedOrganization = req.body;
@@ -79,14 +80,24 @@ app.put('/api/organizations/:id', async (req, res) => {
       return res.status(404).json({ error: 'Organization not found' });
     }
 
-    data.organizations[index] = { ...data.organizations[index], ...updatedOrganization };
+    // Обновляем только разрешенные поля
+    const { id: _, employees: __, ...allowedUpdates } = updatedOrganization;
+
+    // Обновляем данные организации
+    data.organizations[index] = {
+      ...data.organizations[index],
+      ...allowedUpdates
+    };
 
     await writeDataToFile(data);
     res.json(data.organizations[index]);
   } catch (error) {
-    res.status(500).json({ error });
+    res.status(500).json({ error: error.message });
   }
 });
+
+
+
 
 // Удалить организацию
 app.delete('/api/organizations/:id', async (req, res) => {

@@ -7,6 +7,7 @@ import {useUpdateOrganizationMutation} from '@/features';
 interface EditOrganizationModalProps {
   visible: boolean;
   onClose: () => void;
+  currentOrg: string;
   organization: Organization | null;
 }
 
@@ -14,6 +15,7 @@ export const EditOrganizationModal = ({
   visible,
   onClose,
   organization,
+  currentOrg,
 }: EditOrganizationModalProps) => {
   const [form] = Form.useForm();
   const [updateOrganization] = useUpdateOrganizationMutation();
@@ -31,12 +33,13 @@ export const EditOrganizationModal = ({
   }, [organization, form]);
 
   const handleSubmit = async (values: Organization) => {
+    console.log(values);
+
     try {
       if (organization) {
-        const {id, ...restValues} = values;
         await updateOrganization({
-          id: id,
-          ...restValues,
+          id: currentOrg,
+          ...values,
         }).unwrap();
       }
       onClose();

@@ -41,8 +41,6 @@ export const EmployeeList = () => {
 
   const organizations: Organization[] = organizationsData || [];
 
-  console.log(organizations);
-
   const currentOrg: Organization | undefined = organizations.find(
     (org: Organization) => org.id === id,
   );

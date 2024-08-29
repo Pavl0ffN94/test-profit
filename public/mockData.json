@@ -2,7 +2,7 @@
   "organizations": [
     {
       "id": "1",
-      "name": "ООО Альфа",
+      "name": "ООО Альфаds",
       "city": "Москва",
       "phone": "+7 495 123-45-67",
       "email": "info@alfa.ru",
@@ -42,11 +42,19 @@
         },
         {
           "id": "03bceea6018a2e02",
-          "firstName": "TestDouble",
+          "firstName": "TestDouble@@@@",
           "lastName": "Test",
           "position": "Tetst",
           "email": "test@test.com",
           "phone": "+79999999999"
+        },
+        {
+          "id": "a4f5fc83c0eb420c",
+          "firstName": "yryd",
+          "lastName": "rydrydrr",
+          "position": "dyrdyrd",
+          "email": "ryrey@twet.fewf",
+          "phone": "+799999999999"
         }
       ]
     },

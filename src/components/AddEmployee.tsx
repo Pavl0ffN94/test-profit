@@ -82,12 +82,6 @@ export const AddEmployee = ({orgId}: {orgId: string}) => {
             rules={[{required: true, message: 'Пожалуйста, введите номер телефона!'}]}>
             <Input />
           </Form.Item>
-
-          <Form.Item>
-            <Button type='primary' htmlType='submit'>
-              Сохранить
-            </Button>
-          </Form.Item>
         </Form>
       </Modal>
     </>

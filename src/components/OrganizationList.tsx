@@ -122,6 +122,7 @@ export const OrganizationList = () => {
         })}
       />
       <EditOrganizationModal
+        currentOrg={selectedOrganization?.id}
         visible={isEditModalVisible}
         onClose={() => setIsEditModalVisible(false)}
         organization={selectedOrganization}
