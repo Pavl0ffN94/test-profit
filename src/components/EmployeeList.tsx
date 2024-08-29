@@ -39,7 +39,10 @@ export const EmployeeList = () => {
   if (employeesError) return <div>Error loading employees.</div>;
   if (orgsError) return <div>Error loading organizations.</div>;
 
-  const organizations: Organization[] = organizationsData || [];
+  // Приведение типа или проверка на массив
+  const organizations: Organization[] = Array.isArray(organizationsData)
+    ? organizationsData
+    : [];
 
   const currentOrg: Organization | undefined = organizations.find(
     (org: Organization) => org.id === id,

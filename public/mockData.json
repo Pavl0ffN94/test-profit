@@ -42,19 +42,11 @@
         },
         {
           "id": "03bceea6018a2e02",
-          "firstName": "TestDouble@@@@",
+          "firstName": "Test",
           "lastName": "Test",
           "position": "Tetst",
           "email": "test@test.com",
           "phone": "+79999999999"
-        },
-        {
-          "id": "a4f5fc83c0eb420c",
-          "firstName": "yryd",
-          "lastName": "rydrydrr",
-          "position": "dyrdyrd",
-          "email": "ryrey@twet.fewf",
-          "phone": "+799999999999"
         }
       ]
     },
@@ -415,13 +407,22 @@
       ]
     },
     {
-      "id": "847703001f3b95da",
-      "name": "Test",
-      "city": "Test",
-      "phone": "+7999999999",
-      "email": "test@test.com",
-      "description": "test add org",
-      "employees": []
+      "id": "6847a99841d93dba",
+      "name": "efwefe",
+      "city": "wfewf",
+      "phone": "wefewfwe",
+      "email": "fewf@efwfwe.rer",
+      "description": "efefef",
+      "employees": [
+        {
+          "id": "63da00b57d9715a7",
+          "firstName": "fefe",
+          "lastName": "efefe",
+          "position": "fefef",
+          "email": "efef@fefe.ce",
+          "phone": "efweweqe"
+        }
+      ]
     }
   ]
 }

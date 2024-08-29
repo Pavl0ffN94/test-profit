@@ -32,9 +32,7 @@ export const EditOrganizationModal = ({
     }
   }, [organization, form]);
 
-  const handleSubmit = async (values: Organization) => {
-    console.log(values);
-
+  const handleSubmit = async (values: Omit<Organization, 'id'>) => {
     try {
       if (organization) {
         await updateOrganization({

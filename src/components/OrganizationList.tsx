@@ -11,7 +11,7 @@ import style from './style.module.scss';
 import {EditOrganizationModal} from './EditOrganizationsModal';
 
 export const OrganizationList = () => {
-  const {data, error, isLoading} = useGetOrganizationsQuery();
+  const {data: organizationsData, error, isLoading} = useGetOrganizationsQuery();
   const navigate = useNavigate();
 
   const [deleteOrganization] = useDeleteOrganizationMutation();
@@ -111,7 +111,7 @@ export const OrganizationList = () => {
       </div>
       <Table
         columns={columns}
-        dataSource={data || []}
+        dataSource={Array.isArray(organizationsData) ? organizationsData : []}
         rowKey='id'
         pagination={false}
         bordered
@@ -122,7 +122,7 @@ export const OrganizationList = () => {
         })}
       />
       <EditOrganizationModal
-        currentOrg={selectedOrganization?.id}
+        currentOrg={selectedOrganization?.id || ''}
         visible={isEditModalVisible}
         onClose={() => setIsEditModalVisible(false)}
         organization={selectedOrganization}
