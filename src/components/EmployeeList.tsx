@@ -21,10 +21,10 @@ export const EmployeeList = () => {
     data: employees,
     error: employeesError,
     isLoading: employeesLoading,
-  } = useGetEmployeesByOrganizationQuery(id);
+  } = useGetEmployeesByOrganizationQuery(id!);
 
   const {
-    data: organization,
+    data: organizationsData,
     error: orgsError,
     isLoading: orgsLoading,
   } = useGetOrganizationsQuery();
@@ -39,7 +39,17 @@ export const EmployeeList = () => {
   if (employeesError) return <div>Error loading employees.</div>;
   if (orgsError) return <div>Error loading organizations.</div>;
 
-  const currentOrg: Organization = organization.find(org => org.id === id);
+  const organizations: Organization[] = organizationsData || [];
+
+  console.log(organizations);
+
+  const currentOrg: Organization | undefined = organizations.find(
+    (org: Organization) => org.id === id,
+  );
+
+  if (!currentOrg) {
+    return <div>Organization not found</div>;
+  }
 
   const backToHome = () => {
     navigate('/');
@@ -50,7 +60,8 @@ export const EmployeeList = () => {
       await deleteEmployee({orgId: currentOrg.id, employeeId}).unwrap();
       message.success('Сотрудник успешно удалён');
     } catch (error) {
-      message.error('Ошибка при удалении сотрудника', error);
+      message.error('Ошибка при удалении сотрудника');
+      console.error(error);
     }
   };
 

@@ -46,7 +46,7 @@
           "lastName": "Test",
           "position": "Tetst",
           "email": "test@test.com",
-          "phone": "+7999999999999"
+          "phone": "+79999999999"
         }
       ],
       "patch": {
@@ -112,14 +112,6 @@
           "position": "HR",
           "email": "kovaleva@beta.ru",
           "phone": "+7 812 234-56-83"
-        },
-        {
-          "id": "7",
-          "firstName": "Андрей",
-          "lastName": "Новиков",
-          "position": "Разработчик",
-          "email": "novikov@beta.ru",
-          "phone": "+7 812 234-56-84"
         }
       ]
     },
@@ -420,6 +412,15 @@
           "phone": "+7 812 234-56-84"
         }
       ]
+    },
+    {
+      "id": "847703001f3b95da",
+      "name": "Test",
+      "city": "Test",
+      "phone": "+7999999999",
+      "email": "test@test.com",
+      "description": "test add org",
+      "employees": []
     }
   ]
 }

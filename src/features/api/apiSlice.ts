@@ -15,7 +15,13 @@ export const apiSlice = createApi({
     // Получить сотрудников по ID организации
     getEmployeesByOrganization: builder.query<Employee[], string>({
       query: orgId => `organizations/${orgId}/employees`,
-      providesTags: (result, error, orgId) => [{type: 'Employees', id: orgId}],
+      providesTags: (result, _, orgId) =>
+        result
+          ? [
+              ...result.map(({id}) => ({type: 'Employees' as const, id})),
+              {type: 'Employees', id: orgId},
+            ]
+          : [{type: 'Employees', id: orgId}],
     }),
 
     // Добавить новую организацию
@@ -65,18 +71,18 @@ export const apiSlice = createApi({
           method: 'POST',
           body: employee,
         }),
-        invalidatesTags: (result, error, {orgId}) => [{type: 'Employees', id: orgId}],
+        invalidatesTags: (_, __, {orgId}) => [{type: 'Employees', id: orgId}],
       },
     ),
 
     // Обновить сотрудника
     updateEmployee: builder.mutation<Employee, UpdateEmployee>({
       query: ({organizationId, employeeId, patch}) => ({
-        url: `organizations/${organizationId}/employees/${employeeId}`, // Корректный URL для обновления сотрудника
+        url: `organizations/${organizationId}/employees/${employeeId}`,
         method: 'PUT',
         body: patch,
       }),
-      invalidatesTags: (result, error, {organizationId}) => [
+      invalidatesTags: (_, __, {organizationId}) => [
         {type: 'Employees', id: organizationId},
       ],
     }),
@@ -87,7 +93,7 @@ export const apiSlice = createApi({
         url: `organizations/${orgId}/employees/${employeeId}`,
         method: 'DELETE',
       }),
-      invalidatesTags: (result, error, {orgId}) => [{type: 'Employees', id: orgId}],
+      invalidatesTags: (_, __, {orgId}) => [{type: 'Employees', id: orgId}],
     }),
   }),
 });

@@ -2,6 +2,7 @@ import {useAddEmployeeMutation} from '@/features';
 import {Button, Form, Input, Modal} from 'antd';
 import {useState} from 'react';
 import style from './style.module.scss';
+import {Employee} from '@/types';
 
 export const AddEmployee = ({orgId}: {orgId: string}) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -13,7 +14,7 @@ export const AddEmployee = ({orgId}: {orgId: string}) => {
     setIsModalVisible(true);
   };
 
-  const handleOk = async values => {
+  const handleOk = async (values: Employee) => {
     try {
       await addEmployee({orgId, employee: values}).unwrap();
       form.resetFields();

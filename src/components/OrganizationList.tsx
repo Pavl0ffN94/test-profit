@@ -16,7 +16,6 @@ export const OrganizationList = () => {
 
   const [deleteOrganization] = useDeleteOrganizationMutation();
 
-  // Состояние для управления модальным окном редактирования
   const [isEditModalVisible, setIsEditModalVisible] = useState(false);
   const [selectedOrganization, setSelectedOrganization] = useState<Organization | null>(
     null,
@@ -32,7 +31,8 @@ export const OrganizationList = () => {
       await deleteOrganization(orgId).unwrap();
       message.success('Компания успешно удалена');
     } catch (error) {
-      message.error('Ошибка при удалении компании', error);
+      message.error('Ошибка при удалении компании');
+      console.error(error);
     }
   };
 
@@ -90,7 +90,9 @@ export const OrganizationList = () => {
           <Popconfirm
             title='Вы уверены, что хотите удалить эту компанию?'
             onConfirm={e => {
-              e.stopPropagation();
+              if (e) {
+                e.stopPropagation();
+              }
               handleDelete(organization.id);
             }}
             okText='Да'
@@ -109,7 +111,7 @@ export const OrganizationList = () => {
       </div>
       <Table
         columns={columns}
-        dataSource={data}
+        dataSource={data || []}
         rowKey='id'
         pagination={false}
         bordered

@@ -10,7 +10,9 @@ export interface Employee {
 export interface Organization {
   id: string;
   name: string;
-  location: string;
+  email: string;
+  city: string;
+  phone: string;
   description: string;
   employees: Employee[];
 }

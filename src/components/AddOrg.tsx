@@ -2,6 +2,7 @@ import {useAddOrganizationMutation} from '@/features';
 import {Button, Modal, Form, Input} from 'antd';
 import {useState} from 'react';
 import style from './style.module.scss';
+import {Organization} from '@/types';
 
 export const AddOrg = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -13,7 +14,7 @@ export const AddOrg = () => {
     setIsModalVisible(true);
   };
 
-  const handleOk = async values => {
+  const handleOk = async (values: Organization) => {
     try {
       await addOrganization(values).unwrap();
       form.resetFields();

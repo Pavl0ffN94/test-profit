@@ -32,7 +32,7 @@ export const EditEmployeeModal = ({
     }
   }, [employee, form]);
 
-  const handleSubmit = async values => {
+  const handleSubmit = async (values: Employee) => {
     try {
       if (employee) {
         await updateEmployee({
