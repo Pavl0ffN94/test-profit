@@ -3,3 +3,4 @@ export {EmployeeList} from './EmployeeList';
 export {Header} from './Header';
 export {OrganizationList} from './OrganizationList';
 export {AddOrg} from './AddOrg';
+export {EditOrganizationModal} from './EditOrganizationsModal';

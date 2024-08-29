@@ -12,6 +12,7 @@ import {
   useGetOrganizationsQuery,
   useDeleteEmployeeMutation,
 } from '@/features';
+import {AddEmployee} from './AddEmployee';
 
 export const EmployeeList = () => {
   const {id} = useParams<{id: string}>();
@@ -83,7 +84,7 @@ export const EmployeeList = () => {
       title: 'Действия',
       key: 'actions',
       render: employee => (
-        <div className={style.btnEmployee}>
+        <div className={style.btnActions}>
           <Button
             onClick={() => {
               setSelectedEmployee(employee);
@@ -107,9 +108,12 @@ export const EmployeeList = () => {
     <div className={style.employeeWrapper}>
       <div className={style.headerEmpl}>
         <Typography.Title level={2}>{currentOrg.name}</Typography.Title>
-        <Button className={style.breadcrumbs} onClick={() => backToHome()}>
-          Назад
-        </Button>
+        <div className={style.btnActionEmpl}>
+          <AddEmployee orgId={currentOrg.id} />
+          <Button className={style.breadcrumbs} onClick={() => backToHome()}>
+            Назад
+          </Button>
+        </div>
       </div>
       <Table
         columns={columns}

@@ -14,13 +14,33 @@
     height: 50px;
     background-color: #eeeeeedc;
 }
-.btnEmployee{
+.btnActions{
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     gap: 1rem;
+    width: 100%;
 }
 .orgWrapper{
     display: flex;
     flex-direction: column;
     gap: 1rem;
+}
+
+.addOrg{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-end;
+}
+.btnActionEmpl{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+.btnAdd{
+    height: 50px;
 }

@@ -60,18 +60,21 @@ export const EditEmployeeModal = ({
           rules={[{required: true, message: 'Пожалуйста, введите имя!'}]}>
           <Input />
         </Form.Item>
+
         <Form.Item
           label='Фамилия'
           name='lastName'
           rules={[{required: true, message: 'Пожалуйста, введите фамилию!'}]}>
           <Input />
         </Form.Item>
+
         <Form.Item
           label='Должность'
           name='position'
           rules={[{required: true, message: 'Пожалуйста, введите должность!'}]}>
           <Input />
         </Form.Item>
+
         <Form.Item
           label='Email'
           name='email'
@@ -84,12 +87,14 @@ export const EditEmployeeModal = ({
           ]}>
           <Input />
         </Form.Item>
+
         <Form.Item
           label='Телефон'
           name='phone'
           rules={[{required: true, message: 'Пожалуйста, введите номер телефона!'}]}>
           <Input />
         </Form.Item>
+
         <Form.Item>
           <Button type='primary' htmlType='submit'>
             Сохранить

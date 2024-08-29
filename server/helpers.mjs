@@ -1,8 +1,13 @@
 import fs from 'fs';
 import path from 'path';
+import crypto  from 'crypto';
 
 const dataFilePath = path.join(process.cwd(), 'public', 'mockData.json');
 
+
+export const  generateUniqueId= ()=> {
+  return crypto.randomBytes(8).toString('hex');
+}
 
 export const readDataFromFile = () => {
   return new Promise((resolve, reject) => {

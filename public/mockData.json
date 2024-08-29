@@ -39,8 +39,23 @@
           "position": "HR",
           "email": "fedorova@alfa.ru",
           "phone": "+7 495 234-56-81"
+        },
+        {
+          "id": "03bceea6018a2e02",
+          "firstName": "TestDouble",
+          "lastName": "Test",
+          "position": "Tetst",
+          "email": "test@test.com",
+          "phone": "+7999999999999"
         }
-      ]
+      ],
+      "patch": {
+        "name": "ООО Альфf",
+        "city": "Москва",
+        "phone": "+7 495 123-45-67",
+        "email": "info@alfa.ru",
+        "description": "Компания, занимающаяся разработкой программного обеспечения."
+      }
     },
     {
       "id": "2",

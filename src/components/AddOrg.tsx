@@ -1,18 +1,26 @@
-// import {useAddOrganizationMutation} from '@/features';
+import {useAddOrganizationMutation} from '@/features';
 import {Button, Modal, Form, Input} from 'antd';
 import {useState} from 'react';
+import style from './style.module.scss';
 
 export const AddOrg = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [form] = Form.useForm();
+
+  const [addOrganization] = useAddOrganizationMutation();
 
   const showModal = () => {
     setIsModalVisible(true);
   };
 
-  const handleOk = () => {
-    // Логика для обработки отправки формы
-    console.log('Form submitted');
-    setIsModalVisible(false);
+  const handleOk = async values => {
+    try {
+      await addOrganization(values).unwrap();
+      form.resetFields();
+      setIsModalVisible(false);
+    } catch (error) {
+      console.error('Ошибка при добавлении организации:', error);
+    }
   };
 
   const handleCancel = () => {
@@ -21,21 +29,18 @@ export const AddOrg = () => {
 
   return (
     <>
-      <Button type='primary' onClick={showModal}>
+      <Button type='primary' className={style.btnAdd} onClick={showModal}>
         Добавить Организацию
       </Button>
+
       <Modal
         title='Добавление организации'
         open={isModalVisible}
-        onOk={handleOk}
         onCancel={handleCancel}
         okText='Отправить'
-        cancelText='Отмена'>
-        <Form
-          name='basic'
-          initialValues={{remember: true}}
-          onFinish={handleOk}
-          autoComplete='off'>
+        cancelText='Отмена'
+        onOk={form.submit}>
+        <Form name='basic' form={form} onFinish={handleOk} autoComplete='off'>
           <Form.Item
             label='Название'
             name='name'
@@ -47,6 +52,22 @@ export const AddOrg = () => {
             label='Город'
             name='city'
             rules={[{required: true, message: 'Пожалуйста, введите  город!'}]}>
+            <Input />
+          </Form.Item>
+
+          <Form.Item
+            label='Телефон'
+            name='phone'
+            rules={[{required: true, message: 'Пожалуйста, введите Телефон'}]}>
+            <Input />
+          </Form.Item>
+
+          <Form.Item
+            label='Email'
+            name='email'
+            rules={[
+              {required: true, type: 'email', message: 'Пожалуйста, введите Email'},
+            ]}>
             <Input />
           </Form.Item>
 

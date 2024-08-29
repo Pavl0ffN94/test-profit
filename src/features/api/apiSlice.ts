@@ -29,7 +29,17 @@ export const apiSlice = createApi({
     }),
 
     // Обновить организацию
-    updateOrganization: builder.mutation<Organization, Partial<Organization>>({
+    updateOrganization: builder.mutation<
+      Organization,
+      {
+        id: string;
+        name?: string;
+        city?: string;
+        phone?: string;
+        email?: string;
+        description?: string;
+      }
+    >({
       query: ({id, ...patch}) => ({
         url: `organizations/${id}`,
         method: 'PUT',

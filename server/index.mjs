@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import { readDataFromFile, writeDataToFile } from './helpers.mjs';
+import { readDataFromFile, writeDataToFile, generateUniqueId } from './helpers.mjs';
 
 const app = express();
 const PORT = 5000;
@@ -44,14 +44,27 @@ app.post('/api/organizations', async (req, res) => {
 
   try {
     const data = await readDataFromFile();
-    data.organizations.push(newOrganization);
+    const newOrgId = generateUniqueId();
 
+    const organization = {
+      id: newOrgId,
+      name: newOrganization.name,
+      city: newOrganization.city,
+      phone: newOrganization.phone,
+      email: newOrganization.email,
+      description: newOrganization.description,
+      employees: [] 
+    };
+
+    data.organizations.push(organization);
+    
     await writeDataToFile(data);
-    res.status(201).json(newOrganization);
+    res.status(201).json(organization);
   } catch (error) {
     res.status(500).json({ error });
   }
 });
+
 
 // Обновить организацию
 app.put('/api/organizations/:id', async (req, res) => {
@@ -106,17 +119,30 @@ app.post('/api/organizations/:orgId/employees', async (req, res) => {
     const organization = data.organizations.find(org => org.id === orgId);
 
     if (!organization) {
-      return res.status(404).json({ error: 'Organization not found' });
+      return res.status(404).json({ error: 'Организация не найдена' });
     }
 
-    organization.employees.push(newEmployee);
+    const newEmployeeId = generateUniqueId();
 
+    const employee = {
+      id: newEmployeeId,
+      firstName: newEmployee.firstName,
+      lastName: newEmployee.lastName,
+      position: newEmployee.position,
+      email: newEmployee.email,
+      phone: newEmployee.phone
+    };
+
+    organization.employees.push(employee);
+    
     await writeDataToFile(data);
-    res.status(201).json(newEmployee);
+    
+    res.status(201).json(employee);
   } catch (error) {
     res.status(500).json({ error });
   }
 });
+
 
 // Обновить сотрудника
 app.put('/api/organizations/:organizationId/employees/:employeeId', async (req, res) => {
