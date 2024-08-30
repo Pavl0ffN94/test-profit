@@ -9,13 +9,11 @@ export const apiSlice = createApi({
   }),
   tagTypes: ['Organizations', 'Employees'],
   endpoints: builder => ({
-    // Получить список организаций
     getOrganizations: builder.query<OrganizationsResponse, void>({
       query: () => 'organizations',
       providesTags: ['Organizations'],
     }),
 
-    // Получить сотрудников по ID организации
     getEmployeesByOrganization: builder.query<Employee[], string>({
       query: orgId => `organizations/${orgId}/employees`,
       providesTags: (result, _, orgId) =>
@@ -27,7 +25,6 @@ export const apiSlice = createApi({
           : [{type: 'Employees', id: orgId}],
     }),
 
-    // Добавить новую организацию
     addOrganization: builder.mutation<Organization, Partial<Organization>>({
       query: newOrganization => ({
         url: 'organizations',
@@ -37,7 +34,6 @@ export const apiSlice = createApi({
       invalidatesTags: ['Organizations'],
     }),
 
-    // Обновить организацию
     updateOrganization: builder.mutation<
       Organization,
       {
@@ -57,7 +53,6 @@ export const apiSlice = createApi({
       invalidatesTags: ['Organizations'],
     }),
 
-    // Удалить организацию
     deleteOrganization: builder.mutation<void, string>({
       query: id => ({
         url: `organizations/${id}`,
@@ -66,7 +61,6 @@ export const apiSlice = createApi({
       invalidatesTags: ['Organizations'],
     }),
 
-    // Добавить сотрудника
     addEmployee: builder.mutation<Employee, {orgId: string; employee: Partial<Employee>}>(
       {
         query: ({orgId, employee}) => ({
@@ -74,11 +68,13 @@ export const apiSlice = createApi({
           method: 'POST',
           body: employee,
         }),
-        invalidatesTags: (_, __, {orgId}) => [{type: 'Employees', id: orgId}],
+        invalidatesTags: (_, __, {orgId}) => [
+          {type: 'Employees', id: orgId},
+          {type: 'Organizations'},
+        ],
       },
     ),
 
-    // Обновить сотрудника
     updateEmployee: builder.mutation<Employee, UpdateEmployee>({
       query: ({organizationId, employeeId, patch}) => ({
         url: `organizations/${organizationId}/employees/${employeeId}`,
@@ -87,16 +83,19 @@ export const apiSlice = createApi({
       }),
       invalidatesTags: (_, __, {organizationId}) => [
         {type: 'Employees', id: organizationId},
+        {type: 'Organizations'},
       ],
     }),
 
-    // Удалить сотрудника
     deleteEmployee: builder.mutation<void, {orgId: string; employeeId: string}>({
       query: ({orgId, employeeId}) => ({
         url: `organizations/${orgId}/employees/${employeeId}`,
         method: 'DELETE',
       }),
-      invalidatesTags: (_, __, {orgId}) => [{type: 'Employees', id: orgId}],
+      invalidatesTags: (_, __, {orgId}) => [
+        {type: 'Employees', id: orgId},
+        {type: 'Organizations'},
+      ],
     }),
   }),
 });

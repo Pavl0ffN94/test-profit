@@ -1,6 +1,6 @@
 import {useState} from 'react';
-import {useDeleteOrganizationMutation, useGetOrganizationsQuery} from '@/features';
-import {Organization} from '@/types';
+import {useDeleteOrganizationMutation} from '@/features';
+import {Organization, OrganizationsResponse} from '@/types';
 import {Button, Popconfirm, Table, message} from 'antd';
 import {ColumnsType} from 'antd/es/table';
 import {useNavigate} from 'react-router-dom';
@@ -10,8 +10,11 @@ import {AddOrg} from './AddOrg';
 import style from './style.module.scss';
 import {EditOrganizationModal} from './EditOrganizationsModal';
 
-export const OrganizationList = () => {
-  const {data: organizationsData, error, isLoading} = useGetOrganizationsQuery();
+interface OrgListProps {
+  organizationsData: OrganizationsResponse | undefined;
+}
+
+export const OrganizationList = ({organizationsData}: OrgListProps) => {
   const navigate = useNavigate();
 
   const [deleteOrganization] = useDeleteOrganizationMutation();
@@ -21,12 +24,7 @@ export const OrganizationList = () => {
     null,
   );
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error occurred: {error.toString()}</div>;
-
   const handleDelete = async (orgId: string) => {
-    console.log('oRG iD =>', orgId);
-
     try {
       await deleteOrganization(orgId).unwrap();
       message.success('Компания успешно удалена');

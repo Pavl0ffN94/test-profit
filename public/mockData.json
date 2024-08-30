@@ -358,7 +358,7 @@
     },
     {
       "id": "7",
-      "name": "ОAО Hoefe ",
+      "name": "ОAО Hoef",
       "city": "Самара",
       "phone": "+7 812 123-45-67",
       "email": "hoefe@info.ru",
@@ -423,28 +423,20 @@
       ]
     },
     {
-      "id": "afdca3117d00b715",
-      "name": "TestDoble",
-      "city": "Tetst",
-      "phone": "+799999999999",
-      "email": "test@test.com",
-      "description": "rwqrqwrqwrqwr",
+      "id": "fe37888b9eb136e4",
+      "name": "Tets!",
+      "city": "test",
+      "phone": "tes",
+      "email": "tes@tees.com",
+      "description": "test add org",
       "employees": [
         {
-          "id": "657a38813631e82e",
-          "firstName": "rwqrqw",
-          "lastName": "rtetrere",
-          "position": "trtat",
-          "email": "test@test.re",
-          "phone": "rerrere"
-        },
-        {
-          "id": "8f6a4067978c9875",
-          "firstName": "twtwet",
-          "lastName": "ewtewtew",
-          "position": "tewtewt",
-          "email": "ewtwet@tewt.ertew",
-          "phone": "ewtewtewt"
+          "id": "92c123120a0970dc",
+          "firstName": "twqtwrqrqw",
+          "lastName": "qwtqwt",
+          "position": "qwtqt",
+          "email": "qtqw@wat.co",
+          "phone": "reqwrqwr"
         }
       ]
     }

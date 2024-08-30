@@ -6,15 +6,14 @@ import {ColumnsType} from 'antd/es/table';
 import style from './style.module.scss';
 
 import {EditEmployeeModal} from './EditEmployeeModal';
-import {Employee, Organization} from '@/types';
-import {
-  useGetEmployeesByOrganizationQuery,
-  useGetOrganizationsQuery,
-  useDeleteEmployeeMutation,
-} from '@/features';
+import {Employee, Organization, OrganizationsResponse} from '@/types';
+import {useGetEmployeesByOrganizationQuery, useDeleteEmployeeMutation} from '@/features';
 import {AddEmployee} from './AddEmployee';
+interface EmplListProps {
+  orgData: OrganizationsResponse | undefined;
+}
 
-export const EmployeeList = () => {
+export const EmployeeList = ({orgData}: EmplListProps) => {
   const {id} = useParams<{id: string}>();
 
   const {
@@ -23,26 +22,16 @@ export const EmployeeList = () => {
     isLoading: employeesLoading,
   } = useGetEmployeesByOrganizationQuery(id!);
 
-  const {
-    data: organizationsData,
-    error: orgsError,
-    isLoading: orgsLoading,
-  } = useGetOrganizationsQuery();
-
   const [deleteEmployee] = useDeleteEmployeeMutation();
 
   const [selectedEmployee, setSelectedEmployee] = useState<Employee | null>(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const navigate = useNavigate();
 
-  if (employeesLoading || orgsLoading) return <div>Loading...</div>;
+  if (employeesLoading) return <div>Loading...</div>;
   if (employeesError) return <div>Error loading employees.</div>;
-  if (orgsError) return <div>Error loading organizations.</div>;
 
-  // Приведение типа или проверка на массив
-  const organizations: Organization[] = Array.isArray(organizationsData)
-    ? organizationsData
-    : [];
+  const organizations: Organization[] = Array.isArray(orgData) ? orgData : [];
 
   const currentOrg: Organization | undefined = organizations.find(
     (org: Organization) => org.id === id,
